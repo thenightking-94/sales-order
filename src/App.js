@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Login from './Components/Login';
 import Dashboard from './Components/Dashboard';
 import Logout from './Components/Logout';
 
 function App() {
+  const [force, setforce] = useState(0);
+  useEffect(() => {
+    window.addEventListener('resize', force_render);
+    return () => {
+      window.removeEventListener('resize', force_render);
+    }
+  }, [])
+
+  const force_render = () => {
+    setforce(force => force + 1);
+  }
+
   return (
     <div >
       <Switch>

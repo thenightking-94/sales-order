@@ -96,7 +96,7 @@
   display: flex;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   -webkit-animation: puff-in-center 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
     both;
@@ -156,4 +156,14 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px !important;
+}
+.searchBox {
+  outline: none;
+  border: none;
+  width: 60%;
+  border-bottom: 3px solid #dcdcdc !important;
+}
+#hambtn {
+  outline: none;
+  border: none;
 }
