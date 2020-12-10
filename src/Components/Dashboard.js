@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../CSS/allcss.css';
-import { Avatar, Typography, Button, Grid } from '@material-ui/core';
+import { Avatar, Typography, Button } from '@material-ui/core';
 
 const Dashboard = (props) => {
     const [hover_on, sethover] = useState(false);
@@ -15,6 +15,14 @@ const Dashboard = (props) => {
     return (
         <div>
             <div id='nav'>
+                <Button>
+
+                </Button>
+
+                <input type='text' placeholder='Search Products....'>
+
+                </input>
+
                 <div id='logged_info'>
                     <Typography className='typo'><i style={{ color: 'black' }}>{props.match.params.name}</i></Typography>
                     &nbsp;&nbsp;
