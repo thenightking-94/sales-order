@@ -92,10 +92,11 @@
   padding: 20px;
   background-color: white;
   top: 0px;
-  flex-direction: row;
   height: 50px;
   display: flex;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   -webkit-animation: puff-in-center 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
     both;
@@ -135,9 +136,8 @@
 }
 .typo {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px !important;
+  font-size: 16px !important;
   font-weight: 600;
-  font-variant: small-caps;
 }
 #logged_info {
   display: flex;
@@ -146,6 +146,14 @@
   align-items: center;
 }
 .logged_info {
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 3px;
+  width: 75px;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px !important;
 }
