@@ -7,7 +7,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import InfoIcon from '@material-ui/icons/Info';
 
-const Dashboard = (props) => {
+const Orders = (props) => {
     const [hover_on, sethover] = useState(false);
     const [data, setdata] = useState([]);
     const [customer, setcustomer] = useState([]);
@@ -31,8 +31,6 @@ const Dashboard = (props) => {
         }
         return val;
     }
-
-
 
     useEffect(() => {
         setdata(JSON.parse(localStorage.getItem('items')))
@@ -83,13 +81,13 @@ const Dashboard = (props) => {
                 <input className='searchBox' type='text' placeholder='Search Products....' />
 
                 <div id='logged_info'>
-                    {window.innerWidth > `${760}` && <Typography className='typo'><i style={{ color: 'black' }}>{props.match.params.name}</i></Typography>}
+                    {window.innerWidth > `${760}` && <Typography className='typo'><i style={{ color: 'black' }}>{localStorage.getItem('name_user')}</i></Typography>}
                     &nbsp;&nbsp;
                     {hover_on && window.innerWidth > `${760}` && <Typography style={{ background: 'red' }} className='logged_info'>Log out</Typography>}
                     {!hover_on && window.innerWidth > `${760}` && <Typography className='logged_info'>Logged in</Typography>}
                     &nbsp;&nbsp;
                     {window.innerWidth > `${760}` && <Avatar onMouseOver={() => { sethover(true) }} onMouseLeave={() => { sethover(false) }} onClick={logout_option} style={{ cursor: 'pointer' }} src={`${localStorage.getItem('img_url')}`} />}
-                    {window.innerWidth < `${760}` && <Avatar onClick={logout_option} style={{ cursor: 'pointer', background: 'green' }} >{InitialsMobile(props.match.params.name)}</Avatar>}
+                    {window.innerWidth < `${760}` && <Avatar onClick={logout_option} style={{ cursor: 'pointer', background: 'green' }} >{InitialsMobile(localStorage.getItem('name_user'))}</Avatar>}
                 </div>
 
             </div>
@@ -126,5 +124,5 @@ const Dashboard = (props) => {
 
 
 }
-const Memoized_dashboard = React.memo(Dashboard);
-export default Memoized_dashboard;
+const Memoized_Orders = React.memo(Orders);
+export default Memoized_Orders;
