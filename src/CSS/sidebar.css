@@ -70,7 +70,6 @@
   background-color: royalblue;
   background-image: linear-gradient(to right, red, black);
 }
-
 .btn_icons:hover #side_icon {
   display: block !important;
 }

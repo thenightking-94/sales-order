@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import XLSX from 'xlsx';
+import { make_cols } from './MakeColumns';
+import { SheetJSFT } from './types';
 import '../CSS/Logindashboard.css';
 import '../CSS/sidebar.css';
+import '../CSS/BodyElements.css';
 import { Avatar, Typography } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
@@ -28,9 +32,14 @@ const Dashboard = (props) => {
         }
         return val;
     }
+    const handleChange = () => {
 
+    }
+    const handleFile = () => {
+
+    }
     return (
-        <div >
+        <div className='background_body'>
             <div id='nav'>
                 <input className='searchBox' type='text' placeholder='Search Products....' />
 
@@ -45,7 +54,6 @@ const Dashboard = (props) => {
                 </div>
 
             </div>
-
 
             <div className='sidebar'>
                 <div id='upper_icons'>
@@ -67,6 +75,35 @@ const Dashboard = (props) => {
                 </div>
             </div>
 
+            <div className='flexAdder' id='footer'>
+                <p>©&nbsp;Shubham Chatterjee</p>
+            </div>
+
+
+
+
+            <div className='main_body'>
+                <div className='flexAdder'>
+                    <Typography className='typo_body' > Place Order</Typography>
+                </div>
+
+                <br />
+
+                <div className='flexAdder'>
+                    <div className='salesdata_block'>
+                        <p id='para_typo'>
+                            Kindly upload your sales data excel sheet to proceed
+                        </p>
+                        <br/>
+                        <input type="file" className="form-control" id="file" accept={SheetJSFT} onChange={handleChange} />
+                        <br />
+                        <input type='submit'
+                            value="Upload Sales data"
+                            onClick={handleFile} />
+                    </div>
+
+                </div>
+            </div>
 
 
 

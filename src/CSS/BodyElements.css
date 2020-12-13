@@ -1,0 +1,28 @@
+.typo_body {
+  background-image: linear-gradient(to left, #ad1b02, black);
+  color: white;
+  padding: 5px;
+  font-size: 14px !important;
+  border-radius: 5px;
+  width: 20%;
+  font-weight: lighter !important;
+  text-align: center;
+}
+.background_body {
+  padding-top: 120px;
+  background: url("../assets/bgimg.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+}
+.salesdata_block {
+  background-color: white;
+  width: 20%;
+  height: 30vh;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
