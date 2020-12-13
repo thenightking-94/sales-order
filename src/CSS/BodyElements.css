@@ -1,5 +1,5 @@
 .typo_body {
-  background-image: linear-gradient(to left, #ad1b02, black);
+  background-color: black;
   color: white;
   padding: 5px;
   font-size: 14px !important;
@@ -16,6 +16,7 @@
   height: 80vh;
 }
 .salesdata_block {
+  box-sizing: border-box;
   background-color: white;
   width: 20%;
   height: 30vh;
@@ -24,5 +25,30 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  border-left: 10px solid #ffcc98;
+  border-right: 10px solid black;
+}
+#para_typo {
+  text-align: center;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: small-caps;
+  padding: 5px;
+  border-radius: 2px;
+  background-color: #ffcc98;
+  margin-top: -45px;
+}
+input[class="process_btn"] {
+  background-color: salmon;
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  outline: none;
+}
+input[class="process_btn"]:hover {
+  background-color: black;
+  box-shadow: 5px 8px 10px #888;
 }
