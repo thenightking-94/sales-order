@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoogleLogout } from 'react-google-login';
 import { Typography } from '@material-ui/core';
-import '../CSS/allcss.css';
+import '../CSS/Logindashboard.css';
 require('dotenv').config()
 const style = {
     textAlign: 'center',

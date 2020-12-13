@@ -158,12 +158,15 @@
   font-size: 14px !important;
 }
 .searchBox {
+  margin-left: 20%;
   outline: none;
   border: none;
   width: 60%;
   border-bottom: 3px solid #dcdcdc !important;
 }
-#hambtn {
-  outline: none;
-  border: none;
+.flexAdder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from './RefreshToken';
 import { Typography } from '@material-ui/core';
-import '../CSS/allcss.css';
+import '../CSS/Logindashboard.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Store } from '../index';

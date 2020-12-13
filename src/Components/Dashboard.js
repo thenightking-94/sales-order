@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
-import '../CSS/allcss.css';
-import { Avatar, Typography, Button } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import { FaceRounded } from '@material-ui/icons';
+import React, { useState } from 'react';
+import '../CSS/Logindashboard.css';
+import '../CSS/sidebar.css';
+import { Avatar, Typography } from '@material-ui/core';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import InfoIcon from '@material-ui/icons/Info';
 
 const Dashboard = (props) => {
     const [hover_on, sethover] = useState(false);
@@ -30,11 +32,6 @@ const Dashboard = (props) => {
     return (
         <div>
             <div id='nav'>
-
-                <Button id='hambtn'>
-                    <MenuIcon />
-                </Button>
-
                 <input className='searchBox' type='text' placeholder='Search Products....' />
 
                 <div id='logged_info'>
@@ -48,6 +45,29 @@ const Dashboard = (props) => {
                 </div>
 
             </div>
+
+
+            <div className='sidebar'>
+                <div id='upper_icons'>
+                    <button className="btn_icons"  >
+                        <p className="icon_upper_main" >K</p>
+                    </button>
+                    <button className="btn_icons"  >
+                        <ShoppingCartIcon className="icon_upper" />
+                        <p id='side_icon'>Cart</p>
+                    </button>
+                    <button className="btn_icons"  >
+                        <AddShoppingCartIcon className="icon_upper" />
+                        <p id='side_icon'>Add to Cart</p>
+                    </button>
+                    <button className="btn_icons" >
+                        <InfoIcon className="icon_upper" />
+                        <p id='side_icon'>Info</p>
+                    </button>
+                </div>
+            </div>
+
+
 
 
         </div>
