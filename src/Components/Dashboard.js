@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import XLSX from 'xlsx';
 import { make_cols } from './MakeColumns';
 import { SheetJSFT } from './types';
@@ -16,6 +16,8 @@ const Dashboard = (props) => {
     const [file, setfile] = useState({});
     const [data, setdata] = useState([]);
     const [cols, setcols] = useState([]);
+    const [counter, setcounter] = useState(0);
+    const delay = useRef();
 
     const logout_option = () => {
         window.location.assign('/logout');
@@ -39,10 +41,20 @@ const Dashboard = (props) => {
 
 
     useEffect(() => {
-        if (data.length > 0 && cols.length > 0 && uploadComplete)
+        if (data.length > 0 && cols.length > 0 && uploadComplete) {
             localStorage.setItem('items', JSON.stringify(data));
-        console.log(data)
-    }, [data, cols, uploadComplete])
+            delay.current = setInterval(() => {
+                setcounter(counter => counter + 1);
+            }, 1000);
+        }
+        if (counter == 5) {
+            clearInterval(delay.current);
+            window.location.assign('/orders')
+        }
+
+        return () => { clearInterval(delay.current) }
+
+    }, [data, cols, uploadComplete, counter])
 
     const handleChange = (e) => {
         const files = e.target.files;
@@ -142,12 +154,19 @@ const Dashboard = (props) => {
                             Kindly upload your sales data in excel sheet format to proceed
                         </p>
                         <br />
-                        <input type="file" className="form-control file_loader" id="file" accept={SheetJSFT} onChange={handleChange} />
+                        {!uploadComplete && <input type="file" className="form-control file_loader" id="file" accept={SheetJSFT} onChange={handleChange} />}
                         <br />
                         <input type='submit'
                             className='process_btn'
-                            value="Process your data"
+                            value={uploadComplete && data ? "Uploaded !!" : "Process your data"}
                             onClick={handleFile} />
+                        <br />
+                        {uploadComplete && counter != 0 &&
+                            <p style={{ fontSize: '15px', textAlign: 'center', fontFamily: 'Helvetica' }}>
+                                Please hold on while we re-direct you in &nbsp;{5 - counter}&nbsp;seconds.....
+                            </p>
+                        }
+
                     </div>
 
                 </div>
