@@ -10,6 +10,7 @@ import InfoIcon from '@material-ui/icons/Info';
 const Dashboard = (props) => {
     const [hover_on, sethover] = useState(false);
     const [data, setdata] = useState([]);
+    const [customer, setcustomer] = useState([]);
 
 
     const logout_option = () => {
@@ -37,6 +38,43 @@ const Dashboard = (props) => {
         setdata(JSON.parse(localStorage.getItem('items')))
     }, [])
 
+    useEffect(() => {
+        if (data) {
+            console.log(data)
+            let customer = [];
+            var obj = new Object();
+            for (var i = 0; i < data.length; i++) {
+
+                var str = data[i]["Order No_001"].toString();
+
+                if (str.includes("Customer name")) {
+                    if (obj != {}) {
+                        customer = [...customer, obj];
+                        var obj = new Object;
+                    }
+                    obj.name = str;
+                }
+
+                if (str.includes("Delivery & Invoice address")) {
+                    for (const key in data[i]) {
+                        if (key !== "Order No_001")
+                            obj.address = data[i][key];
+                    }
+                }
+                if (str.includes("Order placed date:")) {
+                    for (const key in data[i]) {
+                        if (key !== "Order No_001")
+                            obj.orderDate = data[i][key];
+                    }
+                }
+
+            }
+
+            setcustomer(customer);
+
+        }
+
+    }, [data])
 
     return (
         <div className='background_body'>
