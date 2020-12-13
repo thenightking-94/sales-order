@@ -30,7 +30,7 @@ const Dashboard = (props) => {
     }
 
     return (
-        <div>
+        <div >
             <div id='nav'>
                 <input className='searchBox' type='text' placeholder='Search Products....' />
 
@@ -49,21 +49,21 @@ const Dashboard = (props) => {
 
             <div className='sidebar'>
                 <div id='upper_icons'>
-                    <button className="btn_icons"  >
+                    <span className="btn_icons"  >
                         <p className="icon_upper_main" >K</p>
-                    </button>
-                    <button className="btn_icons"  >
+                    </span>
+                    <span className="btn_icons"  >
                         <ShoppingCartIcon className="icon_upper" />
                         <p id='side_icon'>Cart</p>
-                    </button>
-                    <button className="btn_icons"  >
+                    </span>
+                    <span className="btn_icons"  >
                         <AddShoppingCartIcon className="icon_upper" />
                         <p id='side_icon'>Add to Cart</p>
-                    </button>
-                    <button className="btn_icons" >
+                    </span>
+                    <span className="btn_icons" >
                         <InfoIcon className="icon_upper" />
                         <p id='side_icon'>Info</p>
-                    </button>
+                    </span>
                 </div>
             </div>
 

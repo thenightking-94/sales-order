@@ -42,9 +42,11 @@
 }
 .btn_icons {
   padding-top: 10px;
+  padding-bottom: 10px;
   text-align: center;
   border: none;
   outline: none;
+  cursor: pointer;
   background: transparent;
   width: 100%;
 }
@@ -56,10 +58,11 @@
 }
 .icon_upper {
   color: #a2a2a2 !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
 }
 .icon_upper_main {
   font-size: 25px !important;
+  font-weight: 600;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
@@ -69,18 +72,19 @@
 }
 
 .btn_icons:hover #side_icon {
-  display: block;
+  display: block !important;
 }
 #side_icon {
   display: none;
   position: fixed;
-  left: 70px;
+  margin-left: 70px;
+  margin-top: -30px;
   width: 100px;
   text-align: left;
-  margin-top: -40px;
   color: white;
   border-radius: 5px;
   font-size: 12px;
-  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 15px;
   background-color: #191919;
 }
