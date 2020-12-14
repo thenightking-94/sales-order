@@ -47,7 +47,7 @@ const Dashboard = (props) => {
                 setcounter(counter => counter + 1);
             }, 1000);
         }
-        if (counter == 5) {
+        if (counter == 6) {
             clearInterval(delay.current);
             window.location.assign('/orders')
         }
@@ -94,7 +94,8 @@ const Dashboard = (props) => {
         <div className='background_body'>
 
             <div id='nav'>
-                <input className='searchBox' type='text' placeholder='Search Products....' />
+                {/* <input className='searchBox' type='text' placeholder='Search Products....' />*/}
+                <p className='header_place_of_search'>Customer data Board</p>
 
                 <div id='logged_info'>
                     {window.innerWidth > `${760}` && <Typography className='typo'><i style={{ color: 'black' }}>{props.match.params.name}</i></Typography>}
@@ -163,7 +164,7 @@ const Dashboard = (props) => {
                         <br />
                         {uploadComplete && counter != 0 &&
                             <p style={{ fontSize: '15px', textAlign: 'center', fontFamily: 'Helvetica' }}>
-                                Please hold on while we re-direct you in &nbsp;{5 - counter}&nbsp;seconds.....
+                                Please hold on while we re-direct you in &nbsp;{6 - counter}&nbsp;seconds.....
                             </p>
                         }
 
