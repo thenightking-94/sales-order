@@ -84,3 +84,16 @@ input[class="process_btn"]:hover {
   border: none;
   width: 60%;
 }
+#inside_map {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 80%;
+}
+.flexAdder_cus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}

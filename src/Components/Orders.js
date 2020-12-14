@@ -22,7 +22,7 @@ const Orders = () => {
         let res = '', val = '';
         str += ' ';
         for (var i = 0; i < str.length; i++) {
-            if (str[i] != ' ')
+            if (str[i] !== ' ')
                 res += str[i];
             else {
                 val += res[0];
@@ -148,9 +148,16 @@ const Orders = () => {
                 <Typography id='order_typo'>List of the Orders :</Typography>
                 <SortByAlphaIcon className='icon_sort' />
             </div>
-            {customerdata.length > 0 && ready && customerdata.map(item =>
-                <div key={item.name}>
+            <br /><br />
 
+            {customerdata.length > 0 && ready && customerdata.map(item =>
+                <div key={item.name} className='flexAdder'>
+                    <div id='inside_map' className='flexAdder_cus'>
+                        <p id='text_para1'>{item.name}</p>
+                        <p id='text_para2'>Address:&nbsp;&nbsp;{item.address}</p>
+                        <p id='text_para3'>Order date:&nbsp;&nbsp;{item.orderDate}</p>
+                        <br />
+                    </div>
                 </div>)}
 
 
