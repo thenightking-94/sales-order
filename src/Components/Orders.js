@@ -56,7 +56,7 @@ const Orders = () => {
         var str = val.current.value.toString().toLowerCase();
         let res = [];
         for (var i = 0; i < customerdata.length; i++) {
-            for (var j = 0; j < customerdata[i].thingsBought.length; j++) {
+            for (var j = 0; j < (customerdata[i].thingsBought).length; j++) {
                 if ((((customerdata[i].thingsBought)[j]).toLowerCase()).includes(str))
                     res = [...res, customerdata[i]];
             }
@@ -66,7 +66,13 @@ const Orders = () => {
         e.preventDefault();
     }
 
-
+    const viewOrder = (e) => {
+        var el = e.target.id;
+        el = el.toString();
+        el = el.replace("Customer name :", '').trim();
+        var url = "/view/" + (el);
+        window.location.assign(url)
+    }
     useEffect(() => {
         setdata(JSON.parse(localStorage.getItem('items')))
     }, [])
@@ -129,7 +135,7 @@ const Orders = () => {
         if (customerdata.length > 0 && ready) {
             localStorage.setItem('readyData', JSON.stringify(customerdata));
         }
-        console.log(customerdata)
+
     }, [data, customerdata, ready])
 
     return (
@@ -194,7 +200,7 @@ const Orders = () => {
                             <p id='text_para1'><i id='italic_cus'>{item.name}</i></p>
                             <p id='text_para2'>Address:&nbsp;&nbsp;<i id='italic_cus'>{item.address}</i></p>
                             <p id='text_para3'>Order date:&nbsp;&nbsp;<i id='italic_cus'>{item.orderDate}</i></p>
-                            <div title='view order'><MoreHorizIcon style={{ cursor: 'pointer' }} /></div>
+                            <div title='view order'><MoreHorizIcon id={item.name} onClick={viewOrder} style={{ cursor: 'pointer' }} /></div>
                         </div>
                     </div>)
             }
@@ -204,7 +210,7 @@ const Orders = () => {
                         <p id='text_para1'><i id='italic_cus'>{item.name}</i></p>
                         <p id='text_para2'>Address:&nbsp;&nbsp;<i id='italic_cus'>{item.address}</i></p>
                         <p id='text_para3'>Order date:&nbsp;&nbsp;<i id='italic_cus'>{item.orderDate}</i></p>
-                        <div title='view order'><MoreHorizIcon style={{ cursor: 'pointer' }} /></div>
+                        <div title='view order'><MoreHorizIcon id={item.name} onClick={viewOrder} style={{ cursor: 'pointer' }} /></div>
                     </div>
                 </div>)
             }

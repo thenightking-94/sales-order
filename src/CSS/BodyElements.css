@@ -104,35 +104,7 @@ input[class="process_btn"]:hover {
   align-items: center;
   margin-top: 30px;
 }
-@media (max-width: 900px) {
-  .flexAdder_cus {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  #inside_map {
-    width: 60%;
-    margin-right: -15%;
-    height: 250px;
-  }
-  .background_body_orders {
-    height: auto;
-  }
-  .background_body {
-    height: 90vh;
-  }
-  #text_para2 {
-    background-color: white !important;
-    color: black !important;
-    white-space: break-spaces !important;
-    padding: 0px !important;
-  }
-  .salesdata_block {
-    width: 75%;
-    margin-right: -70px;
-  }
-}
+
 #text_para1 {
   background-color: lightskyblue;
   padding: 4px;
@@ -164,8 +136,74 @@ input[class="process_btn"]:hover {
   cursor: pointer;
   position: fixed;
   right: 80px;
-  background-color: red;
-  color: black;
+  background-color: black;
+  color: white;
   padding: 5px;
   border-radius: 15px;
+}
+.background_user {
+  margin-left: 15%;
+  width: 75%;
+  height: 500px;
+  background-color: white;
+  padding: 5px !important;
+  padding-bottom: 10px !important;
+  border-radius: 5px;
+}
+#view_para {
+  background-color: cornflowerblue;
+  color: black;
+  padding: 2px;
+  font-weight: lighter;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  border-radius: 3px;
+}
+#data_view {
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.btn {
+  background-color: transparent;
+  color: black;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize !important;
+}
+@media only screen and (max-width: 900px) {
+  .flexAdder_cus {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  #inside_map {
+    width: 60%;
+    margin-right: -15%;
+    height: 250px;
+  }
+  .background_body_orders {
+    height: auto;
+  }
+  .background_body {
+    height: 90vh;
+  }
+  #text_para2 {
+    background-color: white !important;
+    color: black !important;
+    white-space: break-spaces !important;
+    padding: 0px !important;
+  }
+  .salesdata_block {
+    width: 75%;
+    margin-right: -70px;
+  }
+  .background_user {
+    margin-left: 20% !important;
+    width: 75%;
+  }
+  .btn,
+  .upload_text {
+    margin-left: 10% !important;
+  }
 }

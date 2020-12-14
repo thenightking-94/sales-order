@@ -4,6 +4,7 @@ import Login from './Components/Login';
 import Dashboard from './Components/Dashboard';
 import Logout from './Components/Logout';
 import Orders from './Components/Orders';
+import View from './Components/View';
 
 function App() {
   const [force, setforce] = useState(0);
@@ -25,6 +26,7 @@ function App() {
         <Route exact path='/dashboard/:name' component={Dashboard} />
         <Route exact path='/logout' component={Logout} />
         <Route exact path='/orders' component={Orders} />
+        <Route exact path='/view/:viewname' component={View} />
       </Switch>
     </div >
   );

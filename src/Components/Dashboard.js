@@ -145,7 +145,7 @@ const Dashboard = (props) => {
 
 
             <div className='main_body'>
-                <div className='flexAdder'>
+                <div className='flexAdder upload_text'>
                     <Typography className='typo_body' ><u> {uploadComplete ? 'Place Order' : 'Upload sales data'}</u></Typography>
                 </div>
 
