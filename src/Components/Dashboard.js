@@ -94,7 +94,9 @@ const Dashboard = (props) => {
         <div className='background_body'>
 
             <div id='nav'>
-                {/* <input className='searchBox' type='text' placeholder='Search Products....' />*/}
+                {/* <form className='form_search' onSubmit={getProduct} >
+                    <input ref={val} className='searchBox' type='text' placeholder='Search Products....' />
+                </form>*/}
                 <p className='header_place_of_search'>Customer data Board</p>
 
                 <div id='logged_info'>

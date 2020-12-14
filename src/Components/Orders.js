@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../CSS/Logindashboard.css';
 import '../CSS/sidebar.css';
 import '../CSS/BodyElements.css';
@@ -7,13 +7,16 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import InfoIcon from '@material-ui/icons/Info';
 import SortByAlphaIcon from '@material-ui/icons/SortByAlpha';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 const Orders = () => {
     const [hover_on, sethover] = useState(false);
     const [data, setdata] = useState([]);
     const [customerdata, setcustomer] = useState([]);
     const [ready, setready] = useState(false);
-
+    const [isSearched, setSearch] = useState(false);
+    const [results, setresults] = useState([]);
+    const val = useRef();
 
     const logout_option = () => {
         window.location.assign('/logout');
@@ -33,6 +36,35 @@ const Orders = () => {
         }
         return val;
     }
+    const sortData = () => {
+        if (customerdata.length > 0) {
+            let res = [];
+            res = customerdata.map(item => item.name);
+            res.sort();
+            let temp = [];
+            for (var i = 0; i < res.length; i++) {
+                for (var j = 0; j < customerdata.length; j++) {
+                    if (res[i] === customerdata[j].name)
+                        temp = [...temp, customerdata[j]];
+                }
+            }
+            setcustomer(temp);
+        }
+    }
+    const getProduct = (e) => {
+        var str = val.current.value.toString().toLowerCase();
+        let res = [];
+        for (var i = 0; i < customerdata.length; i++) {
+            for (var j = 0; j < customerdata[i].thingsBought.length; j++) {
+                if ((((customerdata[i].thingsBought)[j]).toLowerCase()).includes(str))
+                    res = [...res, customerdata[i]];
+            }
+        }
+        setresults(res);
+        setSearch(true);
+        e.preventDefault();
+    }
+
 
     useEffect(() => {
         setdata(JSON.parse(localStorage.getItem('items')))
@@ -94,18 +126,18 @@ const Orders = () => {
         }
 
         if (customerdata.length > 0 && ready) {
-            console.log(customerdata)
             localStorage.setItem('readyData', JSON.stringify(customerdata));
         }
-
+        console.log(customerdata)
     }, [data, customerdata, ready])
 
     return (
-        <div className='background_body'>
+        <div className='background_body_orders'>
 
             <div id='nav'>
-                <input className='searchBox' type='text' placeholder='Search Products....' />
-
+                <form className='form_search' onSubmit={getProduct} >
+                    <input ref={val} className='searchBox' type='text' placeholder='Search Products....' />
+                </form>
                 <div id='logged_info'>
                     {window.innerWidth > `${760}` && <Typography className='typo'><i style={{ color: 'black' }}>{localStorage.getItem('name_user')}</i></Typography>}
                     &nbsp;&nbsp;
@@ -145,24 +177,35 @@ const Orders = () => {
 
 
             <div className='flexAdder'>
-                <Typography id='order_typo'>List of the Orders :</Typography>
-                <SortByAlphaIcon className='icon_sort' />
+                <Typography id='order_typo'>{isSearched ? "Search results :" : "List of the Orders :"}</Typography>
+                <div title="sort alphabetically"><SortByAlphaIcon onClick={sortData} className='icon_sort' /></div>
             </div>
             <br /><br />
-
-            {customerdata.length > 0 && ready && customerdata.map(item =>
-                <div key={item.name} className='flexAdder'>
+            {
+                results.length > 0 && isSearched && results.map(item =>
+                    <div key={item.name} className={window.innerWidth > `${760}` ? 'flexAdder' : 'flexAdderCol'} >
+                        <div id='inside_map' className='flexAdder_cus'>
+                            <p id='text_para1'><i id='italic_cus'>{item.name}</i></p>
+                            <p id='text_para2'>Address:&nbsp;&nbsp;<i id='italic_cus'>{item.address}</i></p>
+                            <p id='text_para3'>Order date:&nbsp;&nbsp;<i id='italic_cus'>{item.orderDate}</i></p>
+                            <div title='view order'><MoreHorizIcon style={{ cursor: 'pointer' }} /></div>
+                        </div>
+                    </div>)
+            }
+            {customerdata.length > 0 && ready && !isSearched && customerdata.map(item =>
+                <div key={item.name} className={window.innerWidth > `${760}` ? 'flexAdder' : 'flexAdderCol'} >
                     <div id='inside_map' className='flexAdder_cus'>
-                        <p id='text_para1'>{item.name}</p>
-                        <p id='text_para2'>Address:&nbsp;&nbsp;{item.address}</p>
-                        <p id='text_para3'>Order date:&nbsp;&nbsp;{item.orderDate}</p>
-                        <br />
+                        <p id='text_para1'><i id='italic_cus'>{item.name}</i></p>
+                        <p id='text_para2'>Address:&nbsp;&nbsp;<i id='italic_cus'>{item.address}</i></p>
+                        <p id='text_para3'>Order date:&nbsp;&nbsp;<i id='italic_cus'>{item.orderDate}</i></p>
+                        <div title='view order'><MoreHorizIcon style={{ cursor: 'pointer' }} /></div>
                     </div>
-                </div>)}
+                </div>)
+            }
 
 
 
-        </div>
+        </div >
     );
 
 

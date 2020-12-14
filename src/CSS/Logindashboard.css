@@ -159,10 +159,10 @@
   font-size: 14px !important;
 }
 .searchBox {
-  margin-left: 20%;
+  margin-left: 10%;
   outline: none;
   border: none;
-  width: 60%;
+  width: 90%;
   border-bottom: 3px solid #dcdcdc !important;
 }
 .flexAdder {
@@ -186,4 +186,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.form_search {
+  width: 60%;
+  margin-left: 10%;
 }
