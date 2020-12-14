@@ -160,3 +160,12 @@ input[class="process_btn"]:hover {
   width: 60%;
   margin-left: 10%;
 }
+.icon_clear {
+  cursor: pointer;
+  position: fixed;
+  right: 80px;
+  background-color: red;
+  color: black;
+  padding: 5px;
+  border-radius: 15px;
+}

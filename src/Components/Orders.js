@@ -8,6 +8,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import InfoIcon from '@material-ui/icons/Info';
 import SortByAlphaIcon from '@material-ui/icons/SortByAlpha';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import ClearIcon from '@material-ui/icons/Clear';
 
 const Orders = () => {
     const [hover_on, sethover] = useState(false);
@@ -179,6 +180,11 @@ const Orders = () => {
             <div className='flexAdder'>
                 <Typography id='order_typo'>{isSearched ? "Search results :" : "List of the Orders :"}</Typography>
                 <div title="sort alphabetically"><SortByAlphaIcon onClick={sortData} className='icon_sort' /></div>
+                {isSearched && <div title="Clear Search"><ClearIcon onClick={() => {
+                    setSearch(false);
+                    val.current.value = '';
+
+                }} className='icon_clear' /></div>}
             </div>
             <br /><br />
             {
