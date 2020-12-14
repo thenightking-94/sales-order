@@ -74,23 +74,30 @@ const Orders = () => {
         window.location.assign(url)
     }
     useEffect(() => {
-        setdata(JSON.parse(localStorage.getItem('items')))
+        var array = JSON.parse(localStorage.getItem('items'));
+        var last_adder = { "Order No_001": "Customer name : last_adder" };
+        array = [...array, last_adder];
+        setdata(array)
+        console.log(JSON.parse(localStorage.getItem('items')))
     }, [])
 
     useEffect(() => {
 
         if (data.length > 0 && !ready) {
 
-            let customer = [];
+            var customer = [];
             var obj = new Object();
+
             for (var i = 0; i < data.length; i++) {
 
                 var str = data[i]["Order No_001"].toString();
 
-                if (str.includes("Customer name")) {
-                    if (obj !== {}) {
-                        customer = [...customer, obj];
-                        obj = new Object();
+                if (str.includes("Customer name :")) {
+                    if (!(Object.keys(obj).length === 0 && obj.constructor === Object)) {
+                        //taking a new object everytime to prevent obj mutation and taking the iterables out of obj
+                        var res = {};
+                        res = { ...obj };
+                        customer = [...customer, res];
                     }
                     obj.name = str;
                 }
@@ -127,7 +134,7 @@ const Orders = () => {
                 }
 
             }
-            customer.shift();
+
             setready(true);
             setcustomer(customer);
         }
